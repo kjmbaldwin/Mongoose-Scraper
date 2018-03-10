@@ -2,6 +2,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
+var mongoose = require("mongoose");
 
 //importing mongoose models
 var db = require("./models");
@@ -17,9 +18,7 @@ app.use(express.static("public"));
 
 //setup mongoose
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/week18Populater", {
-  useMongoClient: true
-});
+mongoose.connect("mongodb://localhost/mongooseScrapperDB");
 
 //setup handlebars 
 var exphbs = require("express-handlebars");

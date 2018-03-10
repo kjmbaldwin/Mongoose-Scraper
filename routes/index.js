@@ -1,11 +1,15 @@
+//express setup
 var express = require('express');
-var fetch = require('../controllers/fetch');
+var router = express.Router();
+
+//controllers
+var scrape = require('../controllers/scrape');
 var headline = require('../controllers/headline');
 var note = require('../controllers/note');
 
-var router = express.Router();
+router.route('/load').get(scrape.load);
+router.route('/scrape').get(scrape.fetch);
 
-router.route('/this-is-the-url').get(fetch);
 // router.route('/').post(movieCtrl.postMovie);
 // router.route('/movies').get(movieCtrl.getMovies);
 
